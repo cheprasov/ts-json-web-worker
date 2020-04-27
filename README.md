@@ -6,9 +6,9 @@
 The library for parse / stringify JSON in different thread via Web Workers.
 
 ##### Features:
-- The library uses Promises for comfort work with Json vis Web Worker.
-- Will simulate a worker via timeout if Web Worker is not supported.
-- `Promise.catch` allows to receive an error on json parse/stringify.
+- The library uses Promises for comfort work with JSON via Web Worker.
+- The library will use setTimeout if Web Worker is not supported.
+- `Promise.catch` allows to receive an error thrown on json parse/stringify.
 - The library is written on TypeScript.
 
 
