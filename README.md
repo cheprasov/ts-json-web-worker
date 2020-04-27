@@ -1,9 +1,9 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-@cheprasov/json-web-worker (v1.0.1)
+@cheprasov/json-web-worker (v1.0.0)
 =========
 
-The JsonWebWorker uses Web Workers for parsing or stringifying Json.
+The library for parse / stringify JSON in different thread via Web Workers.
 
 ##### Features:
 - The library uses Promises for comfort work with Json vis Web Worker.
@@ -48,7 +48,7 @@ jsonWebWorker.stringify({ a: 10, b: [1, 2, 3] }, 2)
 
 ### 3. Documentation
 
-#### 3.1. object `jsonWebWorker`
+#### import
 
 ```javascript
 import { jsonWebWorker, parse, stringify } from '@cheprasov/json-web-worker';
@@ -57,12 +57,13 @@ import { jsonWebWorker, parse, stringify } from '@cheprasov/json-web-worker';
 ##### 3.1. `jsonWebWorker.parse(text): Promise` or `parse(text): Promise`
 
 The method executes `JSON.parse` in a thread via Web Worker
+
 See more here https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
 
 **arguments:**
 
 - `text` - `string` - The string to parse as JSON.
-- returns `Promise`;
+- returns `Promise`.
 
 Example:
 ```javascript
@@ -80,19 +81,20 @@ jsonWebWorker.parse('{"a": "b"}')
 ##### 3.2. `jsonWebWorker.stringify(value, space): Promise` or `stringify(value, space): Promise`
 
 The method executes `JSON.stringify` in a thread via Web Worker
+
 See more here https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 
 **arguments:**
 
 - `value` - `string` - The value to convert to a JSON string.
-- `space` - `string` or `number`, object that's used to insert white space into the output JSON string for readability purposes.
-- returns `Promise`;
+- `space` - optional, `string` or `number`, object that's used to insert white space into the output JSON string for readability purposes.
+- returns `Promise`.
 
 Example:
 ```javascript
 import { jsonWebWorker, parse } from '@cheprasov/worker-thread';
 
-jsonWebWorker.parse('{"a": "b"}')
+jsonWebWorker.stringify({ a: 10, b: [1, 2, 3] }, 2)
     .then(result => {
         console.log('Result:', result);
     }).catch(e => {
